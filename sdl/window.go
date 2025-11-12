@@ -11,8 +11,8 @@ import (
 type Window struct {
 	Width, Height int32
 	window        *sdl.Window
-	renderer      *sdl.Renderer
-	texture       *sdl.Texture
+	renderer      *sdl.Renderer //sdl提供的渲染器，通过render传输
+	texture       *sdl.Texture  //缓冲区，图像渲染加速
 	pixels        []byte
 }
 
@@ -32,7 +32,7 @@ func NewWindow(width, height int32) *Window {
 		sdl.WINDOW_SHOWN,
 	)
 	util.Check(err)
-	renderer, err := sdl.CreateRenderer(window, -1, sdl.WINDOW_SHOWN)
+	renderer, err := sdl.CreateRenderer(window, -1, sdl.WINDOW_SHOWN) //初始化加速器
 	util.Check(err)
 	sdl.SetHint(sdl.HINT_RENDER_SCALE_QUALITY, "linear")
 	err = renderer.SetLogicalSize(width, height)

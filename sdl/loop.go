@@ -9,7 +9,7 @@ import (
 	"uk.ac.bris.cs/gameoflife/util"
 )
 
-const FPS = 60
+const FPS = 60 //能不能改240
 
 func Run(p gol.Params, events <-chan gol.Event, keyPresses chan<- rune) {
 	w := NewWindow(int32(p.ImageWidth), int32(p.ImageHeight))

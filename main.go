@@ -46,7 +46,7 @@ func main() {
 
 	headless := flag.Bool(
 		"headless",
-		false,
+		false, //为false时代表展示启动--loop
 		"Disable the SDL window for running in a headless environment.")
 
 	flag.Parse()
